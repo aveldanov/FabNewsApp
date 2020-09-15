@@ -13,21 +13,26 @@ class NewsListTableViewController: UITableViewController{
         super.viewDidLoad()
         setup()
     }
-
-
     
     private func setup(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.setStatusBar(backgroundColor: .darkGray)
-        self.navigationController?.navigationBar.barTintColor = .darkGray
-        self.navigationController?.navigationBar.backgroundColor = .darkGray
-
+        
+        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=9aff2ae2edb14019be1df1fe522dee01")!
+        WebService().getArticles(url: url){_ in
+            
+        }
+        
     }
     
 }
 
-extension UINavigationController {
 
+
+
+
+extension UINavigationController {
+    
     func setStatusBar(backgroundColor: UIColor) {
         let statusBarFrame: CGRect
         if #available(iOS 13.0, *) {
@@ -39,5 +44,5 @@ extension UINavigationController {
         statusBarView.backgroundColor = backgroundColor
         view.addSubview(statusBarView)
     }
-
+    
 }
