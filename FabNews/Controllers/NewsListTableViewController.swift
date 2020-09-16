@@ -19,7 +19,7 @@ class NewsListTableViewController: UITableViewController{
         self.navigationController?.setStatusBar(backgroundColor: .darkGray)
         
         let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=9aff2ae2edb14019be1df1fe522dee01")!
-        WebService().getArticles(url: url){_ in
+        WebService().getArticles(url: url){ _ in
             
         }
         
