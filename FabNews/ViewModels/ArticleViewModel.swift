@@ -18,6 +18,10 @@ extension ArticleListViewModel{
     func numberOfRowsInSection(_ section:Int)->Int{
         return self.articles.count
     }
+    func articleAtIndex(_ index:Int)->ArticleViewModel{
+        let article = self.articles[index]
+        return ArticleViewModel(article)
+    }
 }
 
 
@@ -35,9 +39,9 @@ extension ArticleViewModel{
 
 extension ArticleViewModel{
     var title: String{
-        return self.article.title
+        return self.article.title ?? "none"
     }
     var description: String{
-        return self.article.description
+        return self.article.description ?? "none"
     }
 }
